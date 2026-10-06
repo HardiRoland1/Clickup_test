@@ -1,0 +1,11 @@
+CLASS zbp_r_salesorder DEFINITION
+  PUBLIC
+  ABSTRACT
+  FINAL
+  FOR BEHAVIOR OF zr_salesorder.
+ENDCLASS.
+
+
+
+CLASS zbp_r_salesorder IMPLEMENTATION.
+ENDCLASS.
