@@ -1,0 +1,42 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Delivery Order',
+    typeNamePlural: 'Delivery Orders',
+    title: { type: #STANDARD, value: 'DeliveryNo' },
+    description: { type: #STANDARD, value: 'CustomerName' }
+  }
+}
+annotate entity ZCPT_C_DLV with
+{
+  @UI.facet: [{ id: 'General', purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE,
+                label: 'Delivery Information', position: 10 }]
+  @UI.hidden: true
+  UUID;
+
+  @UI: { lineItem: [{ position: 10, importance: #HIGH }], identification: [{ position: 10 }], selectionField: [{ position: 10 }] }
+  @EndUserText.label: 'Delivery Order'
+  DeliveryNo;
+
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20 }], selectionField: [{ position: 20 }] }
+  @EndUserText.label: 'Customer'
+  CustomerName;
+
+  @UI: { lineItem: [{ position: 30, importance: #MEDIUM }], identification: [{ position: 30 }], selectionField: [{ position: 30 }] }
+  @EndUserText.label: 'Planned Date'
+  PlannedDate;
+
+  @UI: { lineItem: [{ position: 40, importance: #HIGH },
+                     { type: #FOR_ACTION, dataAction: 'setReady', label: 'Mark Ready', position: 50 },
+                     { type: #FOR_ACTION, dataAction: 'setShipped', label: 'Mark Shipped', position: 60 }],
+         identification: [{ position: 40 }], selectionField: [{ position: 40 }] }
+  @EndUserText.label: 'Status'
+  Status;
+
+  @UI.hidden: true
+  CreatedBy;
+  @UI.hidden: true
+  ChangedAt;
+  @UI.hidden: true
+  LocalChgAt;
+}
