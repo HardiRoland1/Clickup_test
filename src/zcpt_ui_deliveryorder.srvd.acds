@@ -1,4 +1,0 @@
-@EndUserText.label: 'CPT Delivery Order Service'
-define service ZCPT_UI_DELIVERYORDER {
-  expose ZCPT_C_DELIVERYORDER as DeliveryOrders;
-}
