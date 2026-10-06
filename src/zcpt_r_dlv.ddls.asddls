@@ -1,5 +1,6 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'CPT Delivery - Root'
+@Metadata.allowExtensions: true
 define root view entity ZCPT_R_DLV
   as select from zcpt_d_dlv
 {
