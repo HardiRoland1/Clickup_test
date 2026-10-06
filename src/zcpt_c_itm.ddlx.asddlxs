@@ -1,0 +1,70 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Delivery Item',
+    typeNamePlural: 'Delivery Items',
+    title: {
+      type: #STANDARD,
+      label: 'Item',
+      value: 'ItemNo'
+    },
+    description: {
+      value: 'Material'
+    }
+  },
+  presentationVariant: [{
+    sortOrder: [{ by: 'ItemNo', direction: #ASC }],
+    visualizations: [{ type: #AS_LINEITEM }]
+  }]
+}
+annotate view ZCPT_C_ITM with
+{
+  @UI.facet: [
+    { id: 'ItemGeneralCollection', type: #COLLECTION, label: 'Item Data', position: 10 },
+    { id: 'ItemGeneralData', parentId: 'ItemGeneralCollection', type: #IDENTIFICATION_REFERENCE,
+      label: 'General Data', position: 10 }
+  ]
+
+  @UI.hidden: true
+  UUID;
+
+  @UI.hidden: true
+  DeliveryUUID;
+
+  @EndUserText.label: 'Item'
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  @UI.identification: [{ position: 10 }]
+  @UI.selectionField: [{ position: 10 }]
+  @Search.defaultSearchElement: true
+  ItemNo;
+
+  @EndUserText.label: 'Material'
+  @EndUserText.quickInfo: 'Material number for the delivery item'
+  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+  @UI.identification: [{ position: 20 }]
+  @UI.selectionField: [{ position: 20 }]
+  @Search.defaultSearchElement: true
+  Material;
+
+  @EndUserText.label: 'Description'
+  @UI.lineItem: [{ position: 30, importance: #MEDIUM }]
+  @UI.identification: [{ position: 30 }]
+  Description;
+
+  @EndUserText.label: 'Quantity'
+  @UI.lineItem: [{ position: 40, importance: #HIGH }]
+  @UI.identification: [{ position: 40 }]
+  Quantity;
+
+  @EndUserText.label: 'Unit'
+  @UI.lineItem: [{ position: 50, importance: #LOW }]
+  @UI.identification: [{ position: 50 }]
+  Unit;
+
+  @UI.hidden: true
+  CreatedBy;
+  @UI.hidden: true
+  ChangedAt;
+  @UI.hidden: true
+  LocalChgAt;
+}

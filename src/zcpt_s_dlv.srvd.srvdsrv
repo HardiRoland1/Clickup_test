@@ -1,0 +1,5 @@
+@EndUserText.label: 'CPT Delivery - UI service'
+define service ZCPT_S_DLV {
+  expose ZCPT_C_DLV as Orders;
+  expose ZCPT_C_ITM as OrderItems;
+}

@@ -1,0 +1,15 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "ZCPT_R_DLV"
+    ],
+    "ASSOCIATED": [
+      "ZCPT_C_ITM"
+    ],
+    "BASE": [],
+    "ANNO_REF": [],
+    "SCALAR_FUNCTION": [],
+    "VERSION": 0,
+    "ANNOREF_EVALUATION_ERROR": ""
+  }
+}

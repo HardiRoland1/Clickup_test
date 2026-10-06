@@ -1,0 +1,65 @@
+managed implementation in class zbp_cpt_dlv unique;
+strict ( 2 );
+
+define behavior for ZCPT_R_DLV alias DeliveryOrder
+persistent table zcpt_d_dlv
+lock master
+authorization master ( global )
+etag master LocalChgAt
+{
+  create;
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) UUID;
+  field ( readonly ) CreatedBy, ChangedAt, LocalChgAt;
+  field ( mandatory ) DeliveryNo, CustomerName;
+
+  determination setDefaults on save { create; }
+  action setReady;
+  action setShipped;
+
+  association _Items { create; }
+
+  mapping for zcpt_d_dlv
+  {
+    UUID        = uuid;
+    DeliveryNo  = dlv_no;
+    CustomerName = cust_name;
+    PlannedDate = plan_date;
+    Status      = status;
+    CreatedBy   = created_by;
+    ChangedAt   = changed_at;
+    LocalChgAt  = local_chg_at;
+  }
+}
+
+define behavior for ZCPT_R_ITM alias DeliveryItem
+persistent table zcpt_d_itm
+lock dependent by _DeliveryOrder
+authorization dependent by _DeliveryOrder
+etag master LocalChgAt
+{
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) UUID;
+  field ( readonly ) DeliveryUUID, CreatedBy, ChangedAt, LocalChgAt;
+  field ( mandatory ) ItemNo, Material, Quantity, Unit;
+
+  mapping for zcpt_d_itm
+  {
+    UUID         = uuid;
+    DeliveryUUID = dlv_uuid;
+    ItemNo       = item_no;
+    Material     = material;
+    Description  = description;
+    Quantity     = quantity;
+    Unit         = unit;
+    CreatedBy    = created_by;
+    ChangedAt    = changed_at;
+    LocalChgAt   = local_chg_at;
+  }
+
+  association _DeliveryOrder;
+}
