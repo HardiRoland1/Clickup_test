@@ -3,10 +3,12 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DDLX>
-    <NAME>ZCPT_C_DLV</NAME>
-    <TYPE>DDLX/EX</TYPE>
-    <DESCRIPTION>CPT Delivery - UI annotations</DESCRIPTION>
-    <LANGUAGE>EN</LANGUAGE>
+    <METADATA>
+     <NAME>ZCPT_C_DLV</NAME>
+     <TYPE>DDLX/EX</TYPE>
+     <DESCRIPTION>Material Document Metadata</DESCRIPTION>
+     <LANGUAGE>EN</LANGUAGE>
+    </METADATA>
    </DDLX>
   </asx:values>
  </asx:abap>
