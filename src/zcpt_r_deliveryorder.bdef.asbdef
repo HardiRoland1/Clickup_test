@@ -1,0 +1,26 @@
+managed implementation in class ZBP_CPT_R_DELIVERYORDER unique;
+strict ( 2 );
+
+define behavior for ZCPT_R_DELIVERYORDER alias DeliveryOrder
+persistent table ZCPT_D_DLVORD
+lock master
+{
+  create;
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) DeliveryOrderUUID;
+  field ( readonly ) DeliveryStatus;
+  field ( mandatory ) DeliveryOrderNumber, CustomerName, PlannedDeliveryDate;
+
+  determination initializeStatus on modify { create; }
+
+  action setReady;
+  action setShipped;
+
+  side effects
+  {
+    action setReady affects $self;
+    action setShipped affects $self;
+  }
+}

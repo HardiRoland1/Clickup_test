@@ -1,0 +1,20 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "CPT Delivery Orders OData V4 UI",
+    "originalLanguage": "en"
+  },
+  "bindingType": "ODATA V4",
+  "bindingTypeCategory": "ui",
+  "services": [
+    {
+      "name": "ZCPT_UI_DELIVERYORDER",
+      "versions": [
+        {
+          "serviceVersion": "1.0.0",
+          "serviceDefinition": "ZCPT_UI_DELIVERYORDER"
+        }
+      ]
+    }
+  ]
+}

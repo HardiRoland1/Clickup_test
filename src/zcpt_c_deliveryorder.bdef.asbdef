@@ -1,0 +1,12 @@
+projection;
+strict ( 2 );
+
+define behavior for ZCPT_C_DELIVERYORDER alias DeliveryOrder
+{
+  use create;
+  use update;
+  use delete;
+
+  use action setReady;
+  use action setShipped;
+}
